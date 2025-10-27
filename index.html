@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anand Kumar - Gen Sec Sports Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 247, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #00f7ff;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 247, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+        }
+
+        .photo-container {
+            position: relative;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00f7ff 0%, #ff6b35 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: #1a1a2e;
+            font-weight: bold;
+            box-shadow: 0 0 30px rgba(0, 247, 255, 0.6), 0 0 60px rgba(255, 107, 53, 0.3);
+            border: 5px solid #00f7ff;
+            animation: glow 2s ease-in-out infinite;
+            overflow: hidden;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 30px rgba(0, 247, 255, 0.6), 0 0 60px rgba(255, 107, 53, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(0, 247, 255, 0.8), 0 0 80px rgba(255, 107, 53, 0.5); }
+        }
+
+        .header-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .header-text h1 {
+            font-size: 48px;
+            background: linear-gradient(90deg, #00f7ff 0%, #ff6b35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header-text h2 {
+            font-size: 28px;
+            color: #00f7ff;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+        }
+
+        .tagline {
+            font-size: 20px;
+            color: #b8b8b8;
+            font-style: italic;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(0, 247, 255, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #b8b8b8;
+            font-size: 16px;
+        }
+
+        .contact-item::before {
+            content: '⚡';
+            font-size: 20px;
+            color: #ff6b35;
+        }
+
+        /* Sports Icons Floating */
+        .sports-icons {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .sport-icon {
+            position: absolute;
+            font-size: 60px;
+            opacity: 0.45;
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px #00f7ff);
+        }
+
+        .sport-icon:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .sport-icon:nth-child(2) { top: 70%; left: 10%; animation-delay: 1s; }
+        .sport-icon:nth-child(3) { top: 20%; right: 8%; animation-delay: 2s; }
+        .sport-icon:nth-child(4) { bottom: 15%; right: 5%; animation-delay: 3s; }
+        .sport-icon:nth-child(5) { top: 40%; left: 15%; animation-delay: 4s; }
+        .sport-icon:nth-child(6) { bottom: 30%; right: 12%; animation-delay: 5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        /* Section Styles */
+        .section {
+            background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 247, 255, 0.2);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+        }
+
+        .section h3 {
+            font-size: 32px;
+            color: #00f7ff;
+            margin-bottom: 20px;
+            border-left: 5px solid #ff6b35;
+            padding-left: 15px;
+            text-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
+        }
+
+        .about-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #b8b8b8;
+        }
+
+        /* Vision Statement */
+        .vision-box {
+            background: linear-gradient(135deg, rgba(0, 247, 255, 0.2) 0%, rgba(255, 107, 53, 0.2) 100%);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+            font-size: 20px;
+            line-height: 1.8;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 247, 255, 0.3);
+            border: 2px solid #00f7ff;
+        }
+
+        /* Experience Grid */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .experience-card {
+            background: linear-gradient(135deg, rgba(0, 247, 255, 0.1) 0%, rgba(42, 42, 62, 0.5) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #00f7ff;
+            border: 1px solid rgba(0, 247, 255, 0.3);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 247, 255, 0.4), 0 0 20px rgba(255, 107, 53, 0.3);
+            border: 1px solid #00f7ff;
+        }
+
+        .experience-card h4 {
+            color: #00f7ff;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .experience-card p {
+            color: #b8b8b8;
+            line-height: 1.6;
+        }
+
+        /* Action Plan Categories */
+        .action-category {
+            margin-bottom: 30px;
+        }
+
+        .category-title {
+            font-size: 24px;
+            color: #ff6b35;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+        }
+
+        .category-title::before {
+            content: '▸';
+            color: #00f7ff;
+            font-size: 30px;
+        }
+
+        .plan-item {
+            background: linear-gradient(135deg, rgba(0, 247, 255, 0.08) 0%, rgba(255, 107, 53, 0.08) 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 3px solid #00f7ff;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 247, 255, 0.2);
+        }
+
+        .plan-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 20px rgba(0, 247, 255, 0.3);
+            border: 1px solid #00f7ff;
+        }
+
+        .plan-item h5 {
+            color: #00f7ff;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .plan-item p {
+            color: #b8b8b8;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #00f7ff 0%, #ff6b35 100%);
+            color: #1a1a2e;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 30px rgba(0, 247, 255, 0.4);
+            border: 2px solid #00f7ff;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 247, 255, 0.6), 0 0 60px rgba(255, 107, 53, 0.4);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #00f7ff;
+        }
+
+        .footer strong {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, #00f7ff 0%, #ff6b35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
+        }
+
+        .footer p {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #b8b8b8;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-text h1 {
+                font-size: 36px;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .stat-card {
+                padding: 20px;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sports-icons">
+        <div class="sport-icon">🏏</div>
+        <div class="sport-icon">⚽</div>
+        <div class="sport-icon">🏸</div>
+        <div class="sport-icon">🏐</div>
+        <div class="sport-icon">🥋</div>
+        <div class="sport-icon">🎮</div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="photo-container">
+                    <div class="profile-photo">
+                        <!-- Replace 'anand-photo.jpg' with your image filename or URL -->
+                        <img src="image.jpg" alt="Anand Kumar" onerror="this.style.display='none'; this.parentElement.innerHTML='AK';">
+                    </div>
+                </div>
+                <div class="header-text">
+                    <h1>Anand Kumar</h1>
+                    <h2>Contesting for General Secretary (Sports)</h2>
+                    <p style="font-size: 18px; color: #b8b8b8; margin-bottom: 15px;">2nd Year CSE | IIIT Kalyani</p>
+                    <div class="tagline">
+                        "A Vision of Experience, Action, and Inclusivity"
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-item">anandkumar841408@gmail.com</div>
+                        <div class="contact-item">+91 62097 68114</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Me -->
+        <div class="section">
+            <h3>About Me</h3>
+            <p class="about-text">
+                My name is Anand Kumar, and I believe that sports are not just about games; they are about building character, 
+                fostering teamwork, and creating a vibrant, energetic campus life for everyone. I am known for my hard work, 
+                approachability, and deep passion for sports. I am always available to help and am fully dedicated to building 
+                a vibrant sports culture for everyone on campus.
+            </p>
+            <div class="vision-box">
+                My campaign is built on a foundation of proven experience and a clear, actionable vision for the future.
+            </div>
+        </div>
+
+        <!-- Track Record Stats -->
+        <div class="section">
+            <h3>My Impact in Numbers</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Years of Active Service</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Major Events Led</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6+</div>
+                    <div class="stat-label">Sports Organized</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Commitment</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proven Track Record -->
+        <div class="section">
+            <h3>My Proven Track Record</h3>
+            <p style="font-size: 18px; color: #b8b8b8; margin-bottom: 20px; font-style: italic;">
+                My commitment to sports is not new. I have been on the ground, working for our college's sports culture since my first year.
+            </p>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h4>🏏 Early & Consistent Involvement</h4>
+                    <p>Began as an on-ground volunteer for cricket in first semester and contributed to Anukriti through sports photography.</p>
+                </div>
+                <div class="experience-card">
+                    <h4>⚡ Core Team Leadership</h4>
+                    <p>Earned a place in the Core Sports Team in second year, integral to organizing Inter-IIIT trials for cricket, badminton, kabaddi, and athletics.</p>
+                </div>
+                <div class="experience-card">
+                    <h4>🏆 Proven Event Management</h4>
+                    <p>Successfully led Lakshya, organizing footsal and badminton tournaments. Currently leading upcoming cricket and athletics events. Also assisted in chess tournament.</p>
+                </div>
+                <div class="experience-card">
+                    <h4>🥋 Personal Achievement & Pride</h4>
+                    <p>Had the honor of representing our college in Inter-IIIT Kabaddi team and competed at district level, bringing valuable experience to campus.</p>
+                </div>
+                <div class="experience-card">
+                    <h4>🎯 Versatile Contributor</h4>
+                    <p>Managed logistics for FOSS Club and been an on-ground volunteer in almost every college event, proving reliability and team spirit.</p>
+                </div>
+                <div class="experience-card">
+                    <h4>🎮 Pioneering in Esports</h4>
+                    <p>Recognizing student interest, unofficially helped organize and conduct popular BGMI and Free Fire tournaments, showing initiative to cater to all interests.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Plan -->
+        <div class="section">
+            <h3>My Action Plan: More Games, More Players, More Opportunities</h3>
+            <p style="font-size: 18px; color: #b8b8b8; margin-bottom: 30px; font-style: italic;">
+                My vision is not just to maintain the status quo, but to elevate our sports culture to new heights.
+            </p>
+
+            <div class="action-category">
+                <div class="category-title">Enhance Our Competitive Edge</div>
+                <div class="plan-item">
+                    <h5>🏅 Boost Inter-IIIT Representation</h5>
+                    <p>Actively work to increase the number of participants from our college in the Inter-IIIT sports meet, ensuring our best talent represents us.</p>
+                </div>
+                <div class="plan-item">
+                    <h5>🎪 Continue & Enhance Legacy Events</h5>
+                    <p>Successfully conduct and elevate Lakshya 2026, our college's major sports festival.</p>
+                </div>
+            </div>
+
+            <div class="action-category">
+                <div class="category-title">Champion Inclusivity and Diversity</div>
+                <div class="plan-item">
+                    <h5>👩‍🎓 Increase Girls' Participation</h5>
+                    <p>My top priority is to significantly increase girls' participation in all sports activities.</p>
+                </div>
+                <div class="plan-item">
+                    <h5>🏐 Establish New Teams</h5>
+                    <p>Work to establish new teams for both boys and girls in Volleyball, Kho Kho, and Kabaddi, ensuring more students have the chance to play.</p>
+                </div>
+            </div>
+
+            <div class="action-category">
+                <div class="category-title">Ensure Consistent Practice & Resources</div>
+                <div class="plan-item">
+                    <h5>📅 Regular Practice Sessions</h5>
+                    <p>Implement regular, scheduled practice sessions for all sports, ensuring teams have dedicated time to train and improve.</p>
+                </div>
+                <div class="plan-item">
+                    <h5>🏓 Procure & Maintain Equipment</h5>
+                    <p>Work to procure and maintain all necessary sports equipment, with immediate focus on providing new equipment for Table Tennis.</p>
+                </div>
+            </div>
+
+            <div class="action-category">
+                <div class="category-title">Expand the Arena for Esports</div>
+                <div class="plan-item">
+                    <h5>🎮 Official Esports Tournaments</h5>
+                    <p>Building on past success, officially introduce and increase frequency of esports tournaments, including popular titles like FIFA, Valorant, and Call of Duty.</p>
+                </div>
+            </div>
+
+            <div class="action-category">
+                <div class="category-title">Promote Thriving Internal Sports Culture</div>
+                <div class="plan-item">
+                    <h5>🏆 Inter-Departmental Tournaments</h5>
+                    <p>Launch inter-departmental sports and esports tournaments to foster healthy competition and camaraderie within our college.</p>
+                </div>
+            </div>
+
+            <div class="action-category">
+                <div class="category-title">Smart Solutions for Practical Problems</div>
+                <div class="plan-item">
+                    <h5>🏟️ Campus Ground Allocation</h5>
+                    <p>Strive to allocate our own campus grounds for sports practice and events instead of relying on external stadiums, eliminating scheduling conflicts and travel time once and for all.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Closing Statement -->
+        <div class="section" style="background: linear-gradient(135deg, rgba(0, 247, 255, 0.15) 0%, rgba(255, 107, 53, 0.15) 100%); border: 2px solid #00f7ff;">
+            <h3>Why Vote for Me?</h3>
+            <p class="about-text" style="font-size: 20px;">
+                My past actions have prepared me for this role, and my future plans are designed for the benefit of every student. 
+                I am not just asking for a position; I am asking for the opportunity to serve a community I deeply care about.
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <strong>Vote for Anand Kumar</strong>
+            <p>Let's build a stronger, more active, and more inclusive sporting community together! 🏆</p>
+            <p style="margin-top: 20px; font-size: 24px; font-weight: bold; color: #ff6b35;">General Secretary (Sports)</p>
+        </div>
+    </div>
+</body>
+</html>
